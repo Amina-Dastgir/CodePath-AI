@@ -2,8 +2,7 @@ import streamlit as st
 from crewai import LLM
 
 
-MODEL_NAME = "gemini/gemini-2.5-flash"
-
+MODEL_NAME = "gemini/gemini-3.8-flash"
 
 def create_llm(model_name: str = MODEL_NAME):
     """Create the Gemini LLM used by CodePath AI agents."""
