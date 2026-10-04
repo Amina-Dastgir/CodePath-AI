@@ -1,14 +1,17 @@
+import streamlit as st
 from crewai import LLM
 
-MODEL_NAME = "gemini/gemini-3.8-flash"
+MODEL_NAME = "gemini/gemini-2.5-flash"
 
 
-def create_llm(api_key: str) -> LLM:
-    """Create the Gemini language model used by all agents."""
-    if not api_key or not api_key.strip():
-        raise ValueError("A Gemini API key is required.")
+def create_llm():
+    api_key = st.secrets.get("GEMINI_API_KEY", "")
+
+    if not api_key:
+        raise RuntimeError("GEMINI_API_KEY is missing from Streamlit Secrets.")
+
     return LLM(
         model=MODEL_NAME,
-        api_key=api_key.strip(),
-        temperature=1.0,
+        api_key=api_key,
+        temperature=0.2,
     )
