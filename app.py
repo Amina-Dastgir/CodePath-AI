@@ -182,7 +182,7 @@ if submitted:
             progress = st.progress(0, text="Preparing your agent team…")
             st.markdown('<div class="section-label">03 / Live agent workflow</div>', unsafe_allow_html=True)
             try:
-                llm = create_llm(api_key)
+                llm = create_llm()
 
                 with st.status("🧭 Requirement Analyzer — working", expanded=True) as status:
                     status.write("Using the Request Analysis Tool to structure your goal.")
